@@ -34,14 +34,9 @@
       // '$qa_id$' will be replaced with according values for each question
       "qa_html": [ 'ccm.load', { url: 'resources/entry.html', type: 'data', method: 'get' } ],
 
-      'css': [
-        'ccm.load', {
-          url: 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css', type: 'css',
-          attr: { integrity: 'sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS', crossorigin: 'anonymous' }
-        }, {
-          url: 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css', type: 'css', context: 'head',
-          attr: { integrity: 'sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS', crossorigin: 'anonymous' }
-        }
+      'css': [ 'ccm.load',
+        { url: '../lib/css/bootstrap.min.css', type: 'css' },
+        { url: '../lib/css/bootstrap.min.css', type: 'css', context: 'head' }
       ],
     },
 

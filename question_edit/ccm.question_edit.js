@@ -39,20 +39,15 @@
         ]
       },
 
-      'css': [
-        'ccm.load', {
-          url: 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css', type: 'css',
-          attr: { integrity: 'sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS', crossorigin: 'anonymous' }
-        }, {
-          url: 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css', type: 'css', context: 'head',
-          attr: { integrity: 'sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS', crossorigin: 'anonymous' }
-        }
+      'css': [ 'ccm.load',
+        { url: '../lib/css/bootstrap.min.css', type: 'css'},
+        { url: '../lib/css/bootstrap.min.css', type: 'css', context: 'head' }
       ],
 
       'js': [
         'ccm.load', {
-          // crypto-js module for hashing question data TODO: move to repo for faster loading
-          url: "https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js", type: 'js', context: 'head'
+          // crypto-js module for hashing question data
+          url: "../lib/js/crypto-js.min.js", type: 'js', context: 'head'
         }
       ]
     },
