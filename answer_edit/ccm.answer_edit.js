@@ -32,7 +32,24 @@
       },
 
       // '$qa_id$' will be replaced with according values for each question
-      "qa_html": [ 'ccm.load', { url: '/answer_edit/resources/entry.html', type: 'data', method: 'get' } ],
+      "qa_html":
+`<div class="input-group row m-1">
+  <div class="input-group-prepend col-sm-0 p-1">
+    <label for="$qa_id$_question" class="text-secondary">Question</label>
+  </div>
+  <div class="col-sm-0">
+    <input type="text" readonly class="form-control-plaintext p-1 text-info" id="$qa_id$_question" value="">
+  </div>
+</div>
+<div class="input-group row mb-3 m-1">
+  <div class="input-group-prepend col-md-0">
+    <label for="$qa_id$_answer" class="p-2 input-group-text">Answer</label>
+  </div>
+  <div class="col-lg-0">
+    <textarea class="form-control" aria-label="Answer" id="$qa_id$_answer" style="resize: both;">
+    </textarea>
+  </div>
+</div>`,
 
       'css': [ 'ccm.load',
         { url: '../lib/css/bootstrap.min.css', type: 'css' },

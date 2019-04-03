@@ -29,7 +29,15 @@
 
       // $question_id$ and $question_text$ will be replaced with according values for each question
       // id '$question_id$_button' will be used for handling remove event
-      "question_html": [ 'ccm.load', { url: '/question_edit/resources/entry.html', type: 'data', method: 'get' } ],
+      "question_html":
+`<div class="input-group-prepend">
+  <span class="input-group-text" id="$question_id$_label">Question</span>
+</div>
+<input type="text" name="$question_id$" class="form-control" aria-label="Question"
+       aria-describedby="$question_id$_label" value="$question_text$">
+<div class="input-group-append">
+  <button class="btn btn-link" type="button" id="$question_id$_button">Remove</button>
+</div>`,
 
       "html": {
         'main': [
