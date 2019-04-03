@@ -29,7 +29,7 @@
 
       // $question_id$ and $question_text$ will be replaced with according values for each question
       // id '$question_id$_button' will be used for handling remove event
-      "question_html": [ 'ccm.load', { url: 'resources/entry.html', type: 'data', method: 'get' } ],
+      "question_html": [ 'ccm.load', { url: '/question_edit/resources/entry.html', type: 'data', method: 'get' } ],
 
       "html": {
         'main': [

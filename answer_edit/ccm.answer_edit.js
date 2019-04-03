@@ -32,7 +32,7 @@
       },
 
       // '$qa_id$' will be replaced with according values for each question
-      "qa_html": [ 'ccm.load', { url: 'resources/entry.html', type: 'data', method: 'get' } ],
+      "qa_html": [ 'ccm.load', { url: '/answer_edit/resources/entry.html', type: 'data', method: 'get' } ],
 
       'css': [ 'ccm.load',
         { url: '../lib/css/bootstrap.min.css', type: 'css' },
