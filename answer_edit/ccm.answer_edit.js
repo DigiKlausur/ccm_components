@@ -21,7 +21,7 @@
       // predefined strings
       "constants" : {
         "key_questions": "questions",   // key of store document containing question entries
-        "qa_prefix": "qa_"        // will be prepended to question-answer pair indices to create element ID's
+        "qa_prefix": "qa_"              // will be prepended to question-answer pair indices to create element ID's
       },
 
       "html": {
@@ -54,7 +54,7 @@
       'css': [ 'ccm.load',
         { url: '../lib/css/bootstrap.min.css', type: 'css' },
         { url: '../lib/css/bootstrap.min.css', type: 'css', context: 'head' }
-      ],
+      ]
     },
 
     ccm: 'https://ccmjs.github.io/ccm/ccm.js',
@@ -76,7 +76,6 @@
         // get dataset for rendering
         const self = this;
         const qaData = {};
-        let userData;
 
         // login
         let username;
@@ -115,17 +114,16 @@
         // load answers from store
         await self.data.store.get( username ).then(
             ud => {
-              userData = ud;
-              if ( !userData ) {
+              if ( !ud ) {
                 // create new user data document if not exist
-                userData = { "answers": {}, "ranking": {} }
+                ud = { "answers": {}, "ranking": {} }
               }
 
-              userData.answers && Object.keys( userData.answers ).forEach( questionId => {
+              ud.answers && Object.keys( ud.answers ).forEach( questionId => {
                 // if no question on record for this answer, skip entry
                 if ( !qaData[ questionId ] ) return;
 
-                qaData[ questionId ][ 'answer' ] = userData.answers[ questionId ];
+                qaData[ questionId ][ 'answer' ] = ud.answers[ questionId ];
               } );
             },
             reason => console.log( reason )             // read from data store failed
@@ -150,7 +148,7 @@
           Object.keys( qaData ).forEach( ( key ) => {
             const questionIdHtml = self.constants.qa_prefix + key;
             let aId = "textarea#" + questionIdHtml + "_answer";
-            payload.answers[key] = contentElem.querySelector( aId ).value;
+            payload.answers[ key ] = contentElem.querySelector( aId ).value;
           });
 
           await self.data.store.set( payload ).then( () => {
