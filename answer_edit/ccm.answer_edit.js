@@ -105,7 +105,7 @@
             questions => {
               questions && questions.entries && Object.keys( questions.entries ).forEach( questionId => {
                 qaData[ questionId ] = {};
-                qaData[ questionId ][ 'question' ] = questions.entries[ questionId ].text;
+                qaData[ questionId ][ 'question' ] = questions.entries[ questionId ];
               } );
             },
             reason => console.log( reason )             // read from data store failed

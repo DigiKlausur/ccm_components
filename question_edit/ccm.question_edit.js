@@ -148,7 +148,7 @@
           questionsElem.innerHTML = '';
           Object.keys( questionData ).forEach( questionId => {
             const question = questionData[ questionId ];
-            questionsElem.appendChild( renderQuestionDiv( questionId, question ? question.text : '' ) );
+            questionsElem.appendChild( renderQuestionDiv( questionId, question ? question : '' ) );
           } );
         }
 
@@ -164,11 +164,7 @@
             if ( questionData[ emptyQuestionId ] ) return;
 
             // add empty question entry
-            questionData[ emptyQuestionId ] = {
-              'text': '',
-              'last_modified': username,
-              'answered_by': []
-            };
+            questionData[ emptyQuestionId ] = '';
             renderQuestions();
           } );
           addQuestionElem.appendChild( addQuestionButton );
@@ -189,7 +185,7 @@
           const questionInput = questionDiv.querySelector( 'input[name=\'' + questionIdHtml + '\']' );
           questionInput.addEventListener( 'blur', ( event ) => {
             const inputElem = event.srcElement;
-            questionData[ questionId ].text = inputElem ? inputElem.value : '';
+            questionData[ questionId ] = inputElem ? inputElem.value : '';
             reindexQuestions();
           } );
 
@@ -208,7 +204,7 @@
         function reindexQuestions() {
           Object.keys( questionData ).forEach( key => {
             // calculate new question ID
-            const questionId = getQuestionId( questionData[ key ][ "text" ] );
+            const questionId = getQuestionId( questionData[ key ] );
 
             // return if key matches calculated id
             if ( questionId === key ) return;
